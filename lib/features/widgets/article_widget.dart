@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hamzahllc/features/model/article_model.dart';
 import 'package:hamzahllc/features/screens/news_details_screen.dart';
@@ -33,17 +35,22 @@ class ArticleWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12.0),
+            Container(
+              height: 200,
+              width: double.infinity,
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+              ),
               child: Hero(
                 tag: article.description,
-                child: Image.network(
-                        article.urlToImage.isNotEmpty
-                            ? article.urlToImage
-                            :'https://source.unsplash.com/weekly?coding',
-                    height: 200.0,
-                    width: double.infinity,
-                    fit: BoxFit.cover
+                child: CachedNetworkImage(
+                  imageUrl: article.urlToImage,
+                  fit: BoxFit.cover,
+                  errorWidget: (context, url, error) => Image.asset(
+                    'assets/images/img_error.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -71,7 +78,7 @@ class ArticleWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Text(
-                    DateFormat("dd/ MM/ yyyy hh:mm")
+                    DateFormat("dd/ MM/ yyyy")
                         .format(DateTime.parse(article.publishedAt).toLocal()),
                     style: TextStyle(
                       color: Colors.white,

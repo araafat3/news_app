@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hamzahllc/core/helper/navigation/app_navigator.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 mixin class NewsDetailScreen{
@@ -10,7 +11,7 @@ mixin class NewsDetailScreen{
       final snackBar = SnackBar(
         content: Text('Could not launch $url'),
       );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      ScaffoldMessenger.of(AppNavigator().currentContext()).showSnackBar(snackBar);
       throw 'Could not launch $url';
     }
   }

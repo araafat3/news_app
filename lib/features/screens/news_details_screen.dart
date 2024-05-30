@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hamzahllc/core/util/constants/image_paths.dart';
 import 'package:hamzahllc/features/model/article_model.dart';
 import 'package:hamzahllc/features/view_model/news_details_controller.dart';
 import 'package:intl/intl.dart';
@@ -54,7 +55,7 @@ class NewsDetailsScreen extends StatelessWidget with NewsDetailScreen {
                   imageUrl: article.urlToImage,
                   fit: BoxFit.cover,
                   errorWidget: (context, url, error) => Image.asset(
-                    'assets/images/img_error.png',
+                    ImagePaths.IMG_ERROR_NEWS,
                     fit: BoxFit.cover,
                   ),
                 ),

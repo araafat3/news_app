@@ -4,10 +4,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hamzahllc/core/helper/network/network_exception.dart';
-import 'package:hamzahllc/core/helper/network/network_layer.dart';
 import 'package:hamzahllc/core/util/constants/api_codes.dart';
 import 'package:hamzahllc/features/model/article_model.dart';
-import 'package:hamzahllc/features/model/category_models.dart';
 import 'package:hamzahllc/features/repo/news_repository.dart';
 
 

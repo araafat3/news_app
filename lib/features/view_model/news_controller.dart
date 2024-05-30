@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hamzahllc/core/helper/navigation/app_navigator.dart';
 import 'package:hamzahllc/core/helper/network/network_exception.dart';
 import 'package:hamzahllc/core/helper/network/network_layer.dart';
 import 'package:hamzahllc/core/util/constants/api_codes.dart';
@@ -74,7 +75,7 @@ mixin class NewsController{
     }
   }
 
-  apiSearch(BuildContext context){
+  apiSearch(){
     if(searchController.text.isEmpty || searchController.text.length >=3){
       articles.clear();
       page = 1;
@@ -84,7 +85,7 @@ mixin class NewsController{
       final snackBar = SnackBar(
         content: Text("You need to type three or more characters to search."),
       );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      ScaffoldMessenger.of(AppNavigator().currentContext()).showSnackBar(snackBar);
     }
   }
 

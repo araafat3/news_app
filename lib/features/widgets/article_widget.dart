@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hamzahllc/core/helper/navigation/app_navigator.dart';
+import 'package:hamzahllc/core/util/constants/image_paths.dart';
+import 'package:hamzahllc/core/util/constants/route_name.dart';
 import 'package:hamzahllc/features/model/article_model.dart';
 import 'package:hamzahllc/features/screens/news_details_screen.dart';
 import 'package:intl/intl.dart';
@@ -13,11 +16,9 @@ class ArticleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => NewsDetailsScreen(
-              article: article,
-            )
-        ));
+        AppNavigator().push(
+            routeName: RoutesNames.NEWS_DETAILS_ROUTE,
+            arguments: article);
       },
       child: Container(
         margin: EdgeInsets.all(12.0),
@@ -48,7 +49,7 @@ class ArticleWidget extends StatelessWidget {
                   imageUrl: article.urlToImage,
                   fit: BoxFit.cover,
                   errorWidget: (context, url, error) => Image.asset(
-                    'assets/images/img_error.png',
+                    ImagePaths.IMG_ERROR_NEWS,
                     fit: BoxFit.cover,
                   ),
                 ),

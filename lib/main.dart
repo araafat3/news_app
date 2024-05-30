@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hamzahllc/core/helper/local_storage.dart';
+import 'package:hamzahllc/core/helper/navigation/app_navigator.dart';
+import 'package:hamzahllc/core/helper/navigation/router.dart';
 import 'package:hamzahllc/features/screens/news_screen.dart';
 
 void main() async{
@@ -20,8 +22,10 @@ class MyApp extends StatelessWidget {
     ]);
 
     return MaterialApp(
-      title: 'Hamzahllc',
+      title: 'News App',
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: generateRoute,
+      navigatorKey: AppNavigator().navigatorKey,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

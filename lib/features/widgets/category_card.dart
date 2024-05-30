@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:hamzahllc/core/helper/navigation/app_navigator.dart';
+import 'package:hamzahllc/core/util/constants/route_name.dart';
 import 'package:hamzahllc/features/model/category_models.dart';
 import 'package:hamzahllc/features/screens/category_screen.dart';
 
@@ -12,11 +14,9 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => CategoryScreen(
-              category: category.categoryName,
-            )
-        ));
+        AppNavigator().push(
+            routeName: RoutesNames.NEWS_CATEGORY_ROUTE,
+            arguments: category.categoryName);
       },
       child: Container(
           height: 70,

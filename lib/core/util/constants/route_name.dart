@@ -1,4 +1,4 @@
 class RoutesNames {
-  static const String CONVERT_CURRENCY_ROUTE = 'CONVERT_CURRENCY_ROUTE';
-  static const String HISTORY_ROUTE = 'HISTORY_ROUTE';
+  static const String NEWS_DETAILS_ROUTE = '/newsDetails';
+  static const String NEWS_CATEGORY_ROUTE = '/newsCategory';
 }

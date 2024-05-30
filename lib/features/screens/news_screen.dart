@@ -84,7 +84,7 @@ class _NewsScreenState extends State<NewsScreen> with NewsController {
                     ),
                     InkWell(
                       onTap: (){
-                        apiSearch(context);
+                        apiSearch();
                       },
                       child: Container(
                         width: 50,

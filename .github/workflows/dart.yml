@@ -74,7 +74,7 @@ jobs:
   build_appbundle:
     # use [run-ci] for trigger the workflow
     if: "contains(github.event.head_commit.message, '[run-ci]')"
-    name: Build Flutter (Android appBundle)
+    name: Build Flutter (Android)
     needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:

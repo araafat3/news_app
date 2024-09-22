@@ -47,47 +47,47 @@ jobs:
       - name: Run tests
         run: flutter test
 
-  build_ios:
-    name: Build Flutter (iOS)
-    needs: [flutter_test]
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-#      - uses: actions/setup-java@v3
+#  build_ios:
+#    name: Build Flutter (iOS)
+#    needs: [flutter_test]
+#    runs-on: macos-latest
+#    steps:
+#      - uses: actions/checkout@v4
+##      - uses: actions/setup-java@v3
+##        with:
+##          java-version: "12.x"
+##          cache: 'gradle'
+#
+#      - uses: subosito/flutter-action@v2.14.0
 #        with:
-#          java-version: "12.x"
-#          cache: 'gradle'
-
-      - uses: subosito/flutter-action@v2.14.0
-        with:
-#          flutter-version: "3.0.0"
-          channel: "stable"
-          cache: true
-
-      - run: flutter pub get
-      - run: flutter clean
-      - run: flutter build ipa --release --obfuscate --split-debug-info= --split-debug-info=build/app/outputs/symbols  --no-tree-shake-icons
-
-  build_appbundle:
-    name: Build Flutter (Android)
-    needs: [flutter_test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-#      - uses: actions/setup-java@v3
+##          flutter-version: "3.0.0"
+#          channel: "stable"
+#          cache: true
+#
+#      - run: flutter pub get
+#      - run: flutter clean
+#      - run: flutter build ipa --release --obfuscate --split-debug-info= --split-debug-info=build/app/outputs/symbols  --no-tree-shake-icons
+#
+#  build_appbundle:
+#    name: Build Flutter (Android)
+#    needs: [flutter_test]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+##      - uses: actions/setup-java@v3
+##        with:
+##          java-version: "12.x"
+##          cache: 'gradle'
+#
+#      - uses: subosito/flutter-action@v2.14.0
 #        with:
-#          java-version: "12.x"
-#          cache: 'gradle'
-
-      - uses: subosito/flutter-action@v2.14.0
-        with:
-#          flutter-version: "3.0.0"
-          channel: "stable"
-          cache: true
-
-      - run: flutter pub get
-      - run: flutter clean
-      - run: flutter build appbundle --release --obfuscate --split-debug-info= --split-debug-info=build/app/outputs/symbols  --no-tree-shake-icons
+##          flutter-version: "3.0.0"
+#          channel: "stable"
+#          cache: true
+#
+#      - run: flutter pub get
+#      - run: flutter clean
+#      - run: flutter build appbundle --release --obfuscate --split-debug-info= --split-debug-info=build/app/outputs/symbols  --no-tree-shake-icons
 
 
 

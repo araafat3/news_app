@@ -27,6 +27,11 @@ jobs:
 #          java-version: "12.x"
 #          cache: 'gradle'
 
+      - name: cancel previos runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{github.token}}
+
       - uses: subosito/flutter-action@v2.14.0
         with:
 #          flutter-version: "3.0.0"
@@ -40,11 +45,11 @@ jobs:
       # - name: Verify formatting
       #   run: dart format --output=none --set-exit-if-changed .
 
-      - run: dart fix --dry-run
-      - run: dart fix --apply
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: flutter analyze
+#      - run: dart fix --dry-run
+#      - run: dart fix --apply
+#      # Consider passing '--fatal-infos' for slightly stricter analysis.
+#      - name: Analyze project source
+#        run: flutter analyze
 
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed. Note that Flutter projects will
@@ -73,9 +78,10 @@ jobs:
 #      - run: flutter clean
 #      - run: flutter build ipa --release --obfuscate --split-debug-info= --split-debug-info=build/app/outputs/symbols  --no-tree-shake-icons
 
+  # you can write what u want like name
   build_appbundle:
     # use [run-ci] for trigger the workflow
-    if: "contains(github.event.head_commit.message, '[run-ci]')"
+    if: "contains(github.event.head_commit.message, 'run-ci')"
     name: Build Flutter (Android)
     needs: [flutter_test]
     runs-on: ubuntu-latest

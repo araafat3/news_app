@@ -27,7 +27,7 @@ jobs:
 #          java-version: "12.x"
 #          cache: 'gradle'
 
-      - name: Cancel Previos runs
+      - name: Cancel Previos Runs
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           access_token: ${{github.token}}

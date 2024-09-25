@@ -14,6 +14,7 @@ jobs:
   build_debug:
     name: Build & Release
     runs-on: macos-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -25,18 +26,18 @@ jobs:
 #          cache: 'gradle'
 
       - name: Set Up Flutter
-        uses: ruby/setup-ruby@v1
+        uses: subosito/flutter-action@v2.14.0
         with:
-          ruby-version: '3.2.3'
-          working-directory: android # will setup files in folder android
-          bundler-cache: true
+          flutter-version: '3.24.3'
+          channel: 'stable'
+          cache: true
 
 #      - name: Set Up Ruby for fastlane
-#        uses: subosito/flutter-action@v2.14.0
+#        uses: ruby/setup-ruby@v1
 #        with:
-#          flutter-version: '3.24.3'
-#          channel: 'stable'
-#          cache: true
+#          ruby-version: '3.2.3'
+#          working-directory: android # will setup files in folder android
+#          bundler-cache: true
 
       - run: flutter pub get
       - run: flutter test

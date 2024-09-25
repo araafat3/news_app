@@ -87,6 +87,7 @@
 #  # you can write what u want like name
 #  build_appbundle:
 #    # use [run-ci] for trigger the workflow
+##    if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
 #    if: "contains(github.event.head_commit.message, 'run-ci')"
 #    name: Build Flutter (Android)
 #    needs: [flutter_test]
